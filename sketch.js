@@ -1,13 +1,14 @@
-let p;
+let ps;
 
 function setup() {
   createCanvas(500, 500);
-  p = new Particle();
+  ps = new ParticleSystem();
 }
 
 function draw() {
   background(0);
-  p.run();
+  ps.addParticle();
+  ps.run();
 }
 
 class Particle  {
@@ -36,4 +37,18 @@ display() {
   fill(this.saturation, 0, 0, this.lifespan);
   ellipse(this.pos.x, this.pos.y, 10, 10);
 }
+}
+
+class ParticleSystem  {
+  constructor(pos) {
+    this.particles = [];
+  }
+addParticle() {
+    this.particles.push(new Particle());
+  }
+  run() {
+    for(let particle of this.particles)  {
+      particle.run();
+    }
+  }
 }
