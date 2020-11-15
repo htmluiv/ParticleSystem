@@ -13,8 +13,8 @@ function draw() {
 class Particle  {
 constructor() {
 this.acc = createVector(0, 0.05);
-this.vel = createVector(random(-10, 10), random(-10, 10));
-this.pos = createVector(0,0);
+this.vel = createVector(random(-2, 2), random(-4));
+this.pos = createVector(width/2, height/2);
 }
 
 run() {
@@ -29,6 +29,6 @@ update()  {
 
 display() {
   fill(255);
-  ellipse(100,100, 100, 100);
+  ellipse(this.pos.x, this.pos.y, 10, 10);
 }
 }
